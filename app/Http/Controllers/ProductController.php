@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Tag;
+use App\Cat;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -35,7 +37,39 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->title =  $request->prod_title;
+        $product->price =  $request->prod_price;
+        $product->sale =  $request->prod_sale;
+        $product->description =  $request->prod_describtion;
+        $product->save();
+
+        $mechanic->save();
+        
+
+        if ($request->hasFile('picture')) {
+
+            $picture = new Picture();
+
+
+            $image = $request->file('picture');
+            $name = $request->file('picture')->getClientOriginalName();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+
+
+            $picture->imgname = $name;
+            $picture->product_id = $product->id;
+
+            $picture->save();
+
+        }
+
+        $tag = new Tag();
+        $tag->
+
+
+      
     }
 
     /**
