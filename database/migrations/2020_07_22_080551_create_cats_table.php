@@ -16,7 +16,7 @@ class CreateCatsTable extends Migration
         Schema::create('cats', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('parent_id');
+            $table->string('product_id');
             $table->timestamps();
         });
     }

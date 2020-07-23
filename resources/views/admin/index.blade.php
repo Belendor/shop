@@ -32,7 +32,7 @@
 
                         <select  class="form-control" name="prod_cat">
                             
-                            <option value="pizza">Pizza</option>
+                            <option value="pizza">Pizza</option> 
 
                         </select>
 
@@ -44,7 +44,7 @@
                         </select>
 
                         <form action="" method="post" enctype="multipart/form-data">
-                            <label>Nuotrauka:</label><br>
+                            {{-- <label>Nuotrauka:</label><br> --}}
                             <input form-control id="file-input" type="file" name="picture">
                             @csrf
                             <button class="btn btn-primary"  type="submit">Add</button>

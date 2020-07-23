@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin'], function(){
  });
 
 Route::group(['prprefix' => 'product'], function(){
-    Route::get('/add', 'ProductController@store')->name('product.add');
+    Route::post('/add', 'ProductController@store')->name('product.add');
  });
 
 Auth::routes();

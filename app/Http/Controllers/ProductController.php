@@ -64,12 +64,6 @@ class ProductController extends Controller
             $picture->save();
 
         }
-
-        $tag = new Tag();
-        $tag->
-
-
-      
     }
 
     /**

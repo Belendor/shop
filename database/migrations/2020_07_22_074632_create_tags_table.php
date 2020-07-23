@@ -17,7 +17,8 @@ class CreateTagsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('action');
-            
+            $table->string('product_id');
+
             $table->timestamps();
         });
     }
