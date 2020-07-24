@@ -37,33 +37,59 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         $product = new Product();
+
         $product->title =  $request->prod_title;
         $product->price =  $request->prod_price;
         $product->sale =  $request->prod_sale;
         $product->description =  $request->prod_describtion;
-        $product->save();
-
-        $mechanic->save();
-        
 
         if ($request->hasFile('picture')) {
 
-            $picture = new Picture();
-
-
             $image = $request->file('picture');
+
             $name = $request->file('picture')->getClientOriginalName();
+
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $name);
 
-
-            $picture->imgname = $name;
-            $picture->product_id = $product->id;
-
-            $picture->save();
-
+            $product->images = $name;
         }
+
+        $tagString = '';
+
+        if(count($request->tags) == 1 ){
+            $tagString .= $request->tags[0];
+        }else{
+            for($i = 0; $i<count($request->tags); $i++){
+                if($i == 0){
+                    $tagString .= $request->tags[$i];
+                }else{
+                    $tagString .= ', '.$request->tags[$i];
+                }
+            }
+        }
+        $catString = '';
+
+        if(count($request->cats) == 1 ){
+            $catString .= $request->cats[0];
+        }else{
+            for($i = 0; $i<count($request->cats); $i++){
+                if($i == 0){
+                    $catString .= $request->cats[$i];
+                }else{
+                    $catString .= ', '.$request->cats[$i];
+                }
+            }
+        }
+
+        $product->cats = $catString;
+        $product->tags = $tagString;
+
+        $product->save();
+
+        return redirect()->back()->with('success_message', 'Product added succesfuly');
     }
 
     /**
