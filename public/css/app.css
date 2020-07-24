@@ -10933,6 +10933,10 @@ a.text-dark:focus {
   margin-left: calc(50% - 650px);
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .swiper-slide {
   height: 380px;
   border-radius: 10px;

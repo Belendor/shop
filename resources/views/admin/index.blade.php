@@ -8,7 +8,7 @@
                 <div class="card-header">Prideti naują produktą</div>
                 <div class="card-body">
                     
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route('product.add')}}"  enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label>Pavadinimas:</label>
@@ -30,25 +30,21 @@
                             <textarea class="form-control" name="prod_describtion"></textarea>
                         </div>
 
-                        <select  class="form-control" name="prod_cat">
-                            
-                            <option value="pizza">Pizza</option>
+                        <p>Tags:</p>
+                        <label for="hot">Hot</label>
+                        <input type="checkbox" name="tags[]" value="hot">
+                        <label for="new">New</label>
+                        <input type="checkbox" name="tags[]" value="new">
+                        <label for="2in1">2in1</label>
+                        <input type="checkbox" name="tags[]" value="2in1">
 
-                        </select>
+                        <p>Category:</p>
+                        <label for="pizza">Pizza</label>
+                        <input type="checkbox" name="cats[]" value="pizza">
+                        <label for="snack">Snack</label>
+                        <input type="checkbox" name="cats[]" value="snack"><br>
 
-                        <select  class="form-control" name="prod_tag">
-                            
-                            <option value="hot">Hot</option>
-                            <option value="new">New</option>
-
-                        </select>
-
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <label>Nuotrauka:</label><br>
-                            <input form-control id="file-input" type="file" name="picture">
-                            @csrf
-                            <button class="btn btn-primary"  type="submit">Add</button>
-                        </form></div>
+                        <input form-control id="file-input" type="file" name="picture"><br>
                       
                         @csrf
                         <button class="btn btn-success" type="submit">ADD</button>
