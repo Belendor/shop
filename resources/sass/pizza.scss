@@ -1,0 +1,15 @@
+.pizza-container{
+    background-color: white;
+    width: 1300px;
+    margin-left: calc(50% - 650px);
+
+    .pizza-box{
+        display: inline-block;
+        width: 300px;
+        height: 400px;
+    }
+    .img-box{
+        width: 300px;
+        height: 300px;
+    }
+}

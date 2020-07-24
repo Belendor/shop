@@ -1,3 +1,17 @@
+.default-button{
+    text-align: center;
+    display: inline-block;
+    float: right;
+    width: 90px;
+    font-weight: 600;
+    height: 40px;
+    background-color: rgb(255, 105, 0);
+    color: white;
+    line-height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
 .shop-main-container{
     width: 1300px;
     margin-left: calc(50% - 650px);

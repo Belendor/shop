@@ -10928,6 +10928,21 @@ a.text-dark:focus {
   }
 }
 
+.default-button {
+  text-align: center;
+  display: inline-block;
+  float: right;
+  width: 90px;
+  font-weight: 600;
+  height: 40px;
+  background-color: #ff6900;
+  color: white;
+  line-height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
 .shop-main-container {
   width: 1300px;
   margin-left: calc(50% - 650px);
@@ -10958,5 +10973,31 @@ a.text-dark:focus {
 
 #slide4 {
   background-image: url(https://cdn.dodostatic.net/static/Img/Banners/g_1592631443_7e40393bd9a94fd4ad115b9f88dd8499.jpeg);
+}
+
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  box-sizing: border-box;
+  font-family: "SEB Sans Serif", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.pizza-container {
+  background-color: white;
+  width: 1300px;
+  margin-left: calc(50% - 650px);
+}
+
+.pizza-container .pizza-box {
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+}
+
+.pizza-container .img-box {
+  width: 300px;
+  height: 300px;
 }
 
