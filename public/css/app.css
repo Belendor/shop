@@ -10931,8 +10931,9 @@ a.text-dark:focus {
 .default-button {
   text-align: center;
   display: inline-block;
+  position: relative;
   float: right;
-  width: 90px;
+  width: 120px;
   font-weight: 600;
   height: 40px;
   background-color: #ff6900;
@@ -10950,6 +10951,24 @@ a.text-dark:focus {
 
 .hidden {
   visibility: hidden;
+}
+
+.cart-box {
+  position: absolute;
+  top: 60px;
+  left: -80px;
+  width: 300px;
+  min-height: 100px;
+  background-color: white;
+  z-index: 2;
+  border-radius: 10px;
+  visibility: hidden;
+  color: black;
+  cursor: default;
+}
+
+.ex {
+  cursor: pointer;
 }
 
 .swiper-slide {

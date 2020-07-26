@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+
+@section('cart')
+
+    <div class="cart-box">
+    </div>
+
+@endsection
+
+
 @section('content')
     <div class="shop-main-container">
 
@@ -35,11 +44,17 @@
 
              <div class="pizza-box">
                  <img class="img-box" src=" {{ asset('images/'.$product->images)}}" alt="{{$product->images}}">
-                 <p class="name-box">{{$product->title}}</p>
+                 <p id="product-title" class="name-box">{{$product->title}}</p>
                  <p class="desciption-box">{{$product->description}}</p>
                  <div class="price-box">
-                    Nuo {{$product->price}} €
-                    <button class="default-button">Pasirinkti</button>
+                     <p id="product-price"> Nuo {{$product->price}} €</p>
+
+                    <button class="axios-button" data-json='{
+                    "title": "{{$product->title}}", 
+                    "price": {{$product->price}},
+                    "id": {{$product->id}}
+                    }' type="submit">Pasirinkti</button>
+
                  </div>
              </div>
             

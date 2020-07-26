@@ -1,8 +1,9 @@
 .default-button{
     text-align: center;
     display: inline-block;
+    position: relative;
     float: right;
-    width: 90px;
+    width: 120px;
     font-weight: 600;
     height: 40px;
     background-color: rgb(255, 105, 0);
@@ -12,10 +13,35 @@
     cursor: pointer;
     border: none;
 }
+
 .shop-main-container{
     width: 1300px;
     margin-left: calc(50% - 650px);
 }
+
 .hidden{
     visibility: hidden;
 }
+
+.cart-box{
+    position: absolute;
+    top: 60px;
+    left: -80px;
+    width: 300px;
+    min-height: 100px;
+    background-color: white;
+    z-index: 2;
+    border-radius: 10px;
+    visibility: hidden;
+    color: black;
+   cursor: default;
+}
+
+.ex{
+    cursor: pointer;
+}
+
+// p{
+//     border-top: solid 1px black;
+//     border-bottom: solid 1px black;
+// }

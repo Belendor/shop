@@ -19,10 +19,17 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function(){
     Route::get('/', 'HomeController@admin')->name('admin.index');
+    Route::get('/list', 'HomeController@adminList')->name('admin.list');
  });
 
-Route::group(['prprefix' => 'product'], function(){
+Route::group(['prefix' => 'product'], function(){
     Route::post('/add', 'ProductController@store')->name('product.add');
+ });
+
+Route::group(['prefix' => 'api'], function(){
+    Route::post('/session', 'CartController@session')->name('api.session');
+    Route::post('/session/remove', 'CartController@sessionRemove')->name('api.sessionRemove');
+    Route::get('/session', 'CartController@sessionGet')->name('api.sessionGet');
  });
 
 Auth::routes();

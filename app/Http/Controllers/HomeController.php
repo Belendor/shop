@@ -32,4 +32,10 @@ class HomeController extends Controller
     {
         return view('admin.index');
     }
+
+    public function adminList()
+    {   
+        $products = Product::all(); 
+        return view('admin.list', ['products' => $products]);
+    }
 }

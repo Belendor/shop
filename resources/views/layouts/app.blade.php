@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -52,9 +53,10 @@
                     <ul class="navbar-nav ml-auto">
  
                         <li class="nav-item">
-                            <div class="default-button">Krepšelis</div>
+                            <div class="cart-button default-button"> <p class="cart-text">Krepšelis</p> 
+                                @yield('cart')
+                            </div>
                         </li>
-            
                     </ul>
                 </div>
             </div>
