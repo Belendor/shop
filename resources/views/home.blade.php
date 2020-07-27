@@ -38,27 +38,32 @@
 @endsection
 
 @section('pizza')
-    <div class="pizza-container">
-
-        @foreach ($products as $product)
-
-             <div class="pizza-box">
-                 <img class="img-box" src=" {{ asset('images/'.$product->images)}}" alt="{{$product->images}}">
-                 <p id="product-title" class="name-box">{{$product->title}}</p>
-                 <p class="desciption-box">{{$product->description}}</p>
-                 <div class="price-box">
-                     <p id="product-price"> Nuo {{$product->price}} €</p>
-
-                    <button class="axios-button" data-json='{
-                    "title": "{{$product->title}}", 
-                    "price": {{$product->price}},
-                    "id": {{$product->id}}
-                    }' type="submit">Pasirinkti</button>
-
-                 </div>
-             </div>
+    <div class="pizza-container container">
+        <p class="cat-name">Pizza</p>
+        <div class="row">
+            @foreach ($products as $product)
             
-        @endforeach
+                <div class="pizza-box col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <img class="img-box" src=" {{ asset('images/'.$product->images)}}" alt="{{$product->images}}">
+                    <p id="product-title" class="name-box">{{$product->title}}</p>
+                    <p class="desciption-box">{{$product->description}}</p>
+                    <div class="price-box">
+                        <p id="product-price" class="product-price"> Nuo {{$product->price}} €</p>
+
+                        <button class="axios-button" data-json='{
+                        "title": "{{$product->title}}", 
+                        "price": {{$product->price}},
+                        "id": {{$product->id}}
+                        }' type="submit">Pasirinkti</button>
+                    </div>
+                </div>
+            @endforeach
+        </div>
 
     </div>
+@endsection
+
+
+@section('footer')
+    <div class="footer"></div>
 @endsection

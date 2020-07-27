@@ -59,6 +59,7 @@ class ProductController extends Controller
 
         $tagString = '';
 
+        
         if(count($request->tags) == 1 ){
             $tagString .= $request->tags[0];
         }else{

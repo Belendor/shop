@@ -10977,11 +10977,27 @@ a.text-dark:focus {
   background-color: rgba(255, 106, 0, 0.479);
 }
 
+.cat-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.footer {
+  width: 100%;
+  height: 200px;
+  background-color: #454B54;
+}
+
 .swiper-slide {
-  height: 380px;
+  height: 330px;
   border-radius: 10px;
   background-position: center;
   background-size: contain;
+  width: 1147px;
+}
+
+.swiper-container {
+  width: 1131px !important;
 }
 
 #slide1 {
@@ -11006,23 +11022,60 @@ body * {
   padding: 0;
   vertical-align: top;
   box-sizing: border-box;
-  font-family: "SEB Sans Serif", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  background-color: white;
 }
 
 .pizza-container {
-  background-color: white;
-  width: 1300px;
-  margin-left: calc(50% - 650px);
+  width: 100%;
 }
 
 .pizza-container .pizza-box {
   display: inline-block;
-  width: 300px;
-  height: 400px;
 }
 
-.pizza-container .img-box {
-  width: 300px;
-  height: 300px;
+.pizza-container .pizza-box .img-box {
+  width: 100%;
+  transition: linear;
+  transition-duration: 0.2s;
+}
+
+.pizza-container .pizza-box .img-box:hover {
+  transform: translate(0px, 8px);
+}
+
+.pizza-container .pizza-box .name-box {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pizza-container .pizza-box .desciption-box {
+  font-size: 18px;
+  line-height: 18px;
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.pizza-container .pizza-box .price-box .product-price {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.pizza-container .pizza-box .price-box .axios-button {
+  display: inline-block;
+  border: solid 1px #ff6900;
+  color: #ff6900;
+  background-color: white;
+  height: 40px;
+  width: 120px;
+  float: right;
+  border-radius: 10px;
+}
+
+.pizza-container .pizza-box .price-box .axios-button:hover {
+  color: #bd5409;
 }
 

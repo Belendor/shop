@@ -1,15 +1,53 @@
-.pizza-container{
+body{
     background-color: white;
-    width: 1300px;
-    margin-left: calc(50% - 650px);
+}
+
+.pizza-container{
+    width: 100%;
 
     .pizza-box{
         display: inline-block;
-        width: 300px;
-        height: 400px;
-    }
-    .img-box{
-        width: 300px;
-        height: 300px;
+
+        .img-box{
+            width: 100%;
+            transition: linear;
+            transition-duration: 0.2s;
+        }
+        .img-box:hover{
+            transform: translate(0px, 8px);
+        }
+
+        .name-box{
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .desciption-box{
+            font-size: 18px;
+            line-height: 18px;
+            height: 80px;
+            margin-bottom: 30px;
+        }
+
+        .price-box{
+
+            .product-price{
+                display: inline-block;
+                font-size: 20px;
+            }
+            .axios-button{
+                display: inline-block;
+                border: solid 1px rgb(255, 105, 0);
+                color: rgb(255, 105, 0);
+                background-color: white;
+                height: 40px;
+                width: 120px;
+                float: right;
+                border-radius: 10px;
+            }
+            .axios-button:hover{
+                color: rgb(189, 84, 9);
+            }
+        }
     }
 }

@@ -3,6 +3,8 @@ let cartBox = document.querySelector(".cart-box")
 let cartButton = document.querySelector(".cart-button")
 let cartText = document.querySelector(".cart-text")
 
+console.log('js running');
+
 var mySwiper = new Swiper('.swiper-container', {
     // Optional parameters
     direction: 'horizontal',
