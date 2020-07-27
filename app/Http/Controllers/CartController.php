@@ -37,7 +37,7 @@ class CartController extends Controller
         if(isset($cart[$request->id])){
 
             $cart[$request->id] =  ["title" => $request->title,
-                                    "price" => $cart[$request->id]['price'] + $request->price,
+                                    "price" => $request->price,
                                     "count" => $cart[$request->id]['count'] + 1];
 
             session(["cart" => $cart]);
@@ -65,12 +65,39 @@ class CartController extends Controller
     }   
     public function sessionRemove(Request $request)
     {
-
         $cart = session()->get("cart");
         
         unset($cart[$request->id]);
+
+        session(["cart" => $cart]);
+        
+        return session()->get("cart");
+
+    }
+
+    public function sessionAdd(Request $request)
+    {
+        $cart = session()->get("cart");
+        
+        $cart[$request->id] =  ["title" => $cart[$request->id]['title'],
+                                "price" => $cart[$request->id]['price'],
+                                "count" => $cart[$request->id]['count'] + 1];
      
 
+        session(["cart" => $cart]);
+        
+        return session()->get("cart");
+
+    }   
+    public function sessionSubstract(Request $request)
+    {
+        $cart = session()->get("cart");
+        
+        $cart[$request->id] =  ["title" => $cart[$request->id]['title'],
+                                "price" => $cart[$request->id]['price'],
+                                "count" => $cart[$request->id]['count'] - 1];
+     
+                                
         session(["cart" => $cart]);
         
         return session()->get("cart");

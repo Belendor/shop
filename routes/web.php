@@ -29,6 +29,8 @@ Route::group(['prefix' => 'product'], function(){
 Route::group(['prefix' => 'api'], function(){
     Route::post('/session', 'CartController@session')->name('api.session');
     Route::post('/session/remove', 'CartController@sessionRemove')->name('api.sessionRemove');
+    Route::post('/session/add', 'CartController@sessionAdd')->name('api.sessionAdd');
+    Route::post('/session/substract', 'CartController@sessionSubstract')->name('api.sessionSubstract');
     Route::get('/session', 'CartController@sessionGet')->name('api.sessionGet');
  });
 

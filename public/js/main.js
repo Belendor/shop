@@ -62,6 +62,9 @@ for(let i = 0; i<axiosButtons.length;i++){
   })
 }
 
+
+let firstSwitch = true;
+
 function renderCart(items){
 
   let HTML = 'Empty'
@@ -71,11 +74,17 @@ function renderCart(items){
   Object.keys(items).forEach(e => renderList(items[e], e)) 
 
   function renderList (product, id){
+
     productCount++
-    count += product.price
+    count += product.price * product.count
     
+    if(productCount === 1){
+      HTML = "";
+    }
+
     HTML += `<p>${ product.title}<br>
-            ${product.count} X ${product.price}</p><div class="ex" data-id="${id}">X</div>`
+            ${product.count} X ${product.price}</p><div class="ex clickable" data-id="${id}">X</div> 
+            <div class="plus clickable" data-id="${id}">+</div>    <div class="minus clickable" data-id="${id}">-</div>`
     
   }
 
@@ -88,6 +97,8 @@ function renderCart(items){
 
   cartBox.innerHTML = HTML
   exEvents()
+  plusEvents()
+  minusEvents()
 }
 
 
@@ -98,6 +109,34 @@ function exEvents (){
   for(let i = 0; i < exes.length; i++){
     exes[i].addEventListener('click', ()=>{
       axios.post('/shop/public/api/session/remove', {"id": exes[i].dataset.id})
+      .then(res=>{
+        renderCart(res.data)
+      })
+    })
+  }
+}
+
+function plusEvents (){
+  
+  let plus = document.querySelectorAll(".plus")
+
+  for(let i = 0; i < plus.length; i++){
+    plus[i].addEventListener('click', ()=>{
+      axios.post('/shop/public/api/session/add', {"id": plus[i].dataset.id})
+      .then(res=>{
+        renderCart(res.data)
+      })
+    })
+  }
+}
+
+function minusEvents (){
+  
+  let minus = document.querySelectorAll(".minus")
+
+  for(let i = 0; i < minus.length; i++){
+    minus[i].addEventListener('click', ()=>{
+      axios.post('/shop/public/api/session/substract ', {"id": minus[i].dataset.id})
       .then(res=>{
         renderCart(res.data)
       })
