@@ -26,7 +26,7 @@
 .cart-box{
     position: absolute;
     top: 60px;
-    left: -80px;
+    left: -160px;
     width: 300px;
     min-height: 100px;
     background-color: white;
@@ -34,14 +34,17 @@
     border-radius: 10px;
     visibility: hidden;
     color: black;
-   cursor: default;
+    cursor: default;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .clickable{
+    display: inline-block;
     cursor: pointer;
-    border-bottom: solid 1px black;
-    border-top: solid 1px black;
+    width: 40px;
+
 }
+
 .clickable:hover{
   background-color: rgba(255, 106, 0, 0.479);
 }
@@ -55,4 +58,35 @@
     width: 100%;
     height: 200px;
     background-color: #454B54;
+}
+
+.cart-title-row{
+    text-align: left;
+    padding-left: 6px;
+    padding-right: 6px;
+    .ex{
+        display: inline-block;
+        float: right;
+        width: 40px;
+        text-align: center;
+    }
+}
+
+.cart-price-row{
+    height: 45px;
+    padding-left: 6px;
+    padding-right: 6px;
+    .cart-price-box{
+        display: inline-block;
+        height: 45px;
+        border: solid 1px black;
+        border-radius: 10px;
+        width: 100px;
+        float: left;
+    }
+}
+
+.total-product-price{
+    display: inline-block;
+    float: right;
 }

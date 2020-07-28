@@ -72,22 +72,31 @@ function renderCart(items){
   let HTML = 'Empty'
   let count = 0
   let productCount = 0
+  let firstAdded = true
 
   Object.keys(items).forEach(e => renderList(items[e], e)) 
 
   function renderList (product, id){
 
-    productCount++
+    productCount += product.count
     count += product.price * product.count
     
-    if(productCount === 1){
+    if(firstAdded){
       HTML = "";
+      firstAdded = false
     }
 
-    HTML += `<p>${ product.title}<br>
-            ${product.count} X ${product.price}</p><div class="ex clickable" data-id="${id}">X</div> 
-            <div class="plus clickable" data-id="${id}">+</div>    <div class="minus clickable" data-id="${id}">-</div>`
-    
+    HTML += `<div class="cart-title-row"> <span class="cart-title-name">${product.title}</span><span class="ex clickable" data-id="${id}">X</span></div>
+             <div class="cart-price-row">
+                <div class="cart-price-box">
+                  <div class="minus clickable" data-id="${id}">-</div>
+                  ${product.count}
+                  <div class="plus clickable" data-id="${id}">+</div> 
+                </div>
+                <div class="total-product-price">${product.price * product.count} €</div>
+             </div>
+            </div>`
+  
   }
 
   if(productCount){

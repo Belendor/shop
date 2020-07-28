@@ -24,7 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $pizzas;
+        $snacks;
         $products = Product::all();       
+
+        foreach($products as $product){
+            $categories = $product->cats;
+
+            $singleCat = count(explode(", ", $categories));
+            
+            // foreach($singleCat as $cat){
+                
+            // }
+        }
+
         return view('home', ['products' => $products]);
     }
 
@@ -35,7 +49,9 @@ class HomeController extends Controller
 
     public function adminList()
     {   
+
         $products = Product::all(); 
+
         return view('admin.list', ['products' => $products]);
     }
 }
