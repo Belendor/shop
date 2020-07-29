@@ -1,3 +1,6 @@
+{{-- {{dd($pizzas)}} --}}
+
+
 @extends('layouts.app')
 
 
@@ -41,25 +44,49 @@
     <div class="pizza-container container">
         <p class="cat-name">Pizza</p>
         <div class="row">
-            @foreach ($products as $product)
+            @foreach ($pizzas as $pizza)
             
                 <div class="pizza-box col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <img class="img-box" src=" {{ asset('images/'.$product->images)}}" alt="{{$product->images}}">
-                    <p id="product-title" class="name-box">{{$product->title}}</p>
-                    <p class="desciption-box">{{$product->description}}</p>
+                    <img class="img-box" src=" {{ asset('images/'.$pizza->images)}}" alt="{{$pizza->images}}">
+                    <p id="product-title" class="name-box">{{$pizza->title}}</p>
+                    <p class="desciption-box">{{$pizza->description}}</p>
                     <div class="price-box">
-                        <p id="product-price" class="product-price"> Nuo {{$product->price}} €</p>
+                        <p id="product-price" class="product-price"> Nuo {{$pizza->price}} €</p>
 
                         <button class="axios-button" data-json='{
-                        "title": "{{$product->title}}", 
-                        "price": {{$product->price}},
-                        "id": {{$product->id}}
+                        "title": "{{$pizza->title}}",
+                        "price": {{$pizza->price}},
+                        "id": {{$pizza->id}}
                         }' type="submit">Pasirinkti</button>
                     </div>
                 </div>
             @endforeach
         </div>
+    </div>
+@endsection
 
+
+@section('snack')
+    <div class="pizza-container container">
+        <p class="cat-name">Snacks</p>
+        <div class="row">
+            @foreach ($snacks as $snack)
+                <div class="pizza-box col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <img class="img-box" src=" {{ asset('images/'.$snack->images)}}" alt="{{$snack->images}}">
+                    <p id="product-title" class="name-box">{{$snack->title}}</p>
+                    <p class="desciption-box">{{$snack->description}}</p>
+                    <div class="price-box">
+                        <p id="product-price" class="product-price"> Nuo {{$snack->price}} €</p>
+
+                        <button class="axios-button" data-json='{
+                        "title": "{{$snack->title}}",
+                        "price": {{$snack->price}},
+                        "id": {{$snack->id}}
+                        }' type="submit">Pasirinkti</button>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection
 

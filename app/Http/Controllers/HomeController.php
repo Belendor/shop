@@ -25,21 +25,35 @@ class HomeController extends Controller
     public function index()
     {
 
-        $pizzas;
-        $snacks;
+        $pizzas = [];
+        $snacks = [];
         $products = Product::all();       
 
         foreach($products as $product){
             $categories = $product->cats;
-
-            $singleCat = count(explode(", ", $categories));
             
-            // foreach($singleCat as $cat){
-                
-            // }
+            $singleCats = explode(", ", $categories);
+
+            if(is_array($singleCats)){
+                foreach($singleCats as $cat){
+                    if($cat == 'pizza'){
+                        array_push($pizzas, $product);
+                    }
+                    if($cat == 'snack'){
+                        array_push($snacks, $product);
+                    }
+                }    
+            }else{
+                if($singleCats == 'pizza'){
+                    array_push($pizzas, $product);
+                }
+                if($singleCats == 'snack'){
+                    array_push($snacks, $product);
+                }
+            }   
         }
 
-        return view('home', ['products' => $products]);
+        return view('home', ['pizzas' => $pizzas], ['snacks' => $snacks]);
     }
 
     public function admin()

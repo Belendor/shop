@@ -110,6 +110,9 @@
             @yield('pizza')
         </main>
         <main class="py-4">
+            @yield('snack')
+        </main>
+        <main class="py-4">
             @yield('footer')
         </main>
     </div>
