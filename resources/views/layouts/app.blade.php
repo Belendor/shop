@@ -53,9 +53,9 @@
                     <ul class="navbar-nav ml-auto">
  
                         <li class="nav-item">
-                            <div class="cart-button default-button"> <p class="cart-text">Krepšelis</p> 
+                            <a href="{{route('order')}}" class="cart-button default-button"> <p class="cart-text">Krepšelis</p> 
                                 @yield('cart')
-                            </div>
+                            </a>
                         </li>
                     </ul>
                 </div>

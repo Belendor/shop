@@ -91,6 +91,7 @@
 @endsection
 
 
+
 @section('footer')
     <div class="footer"></div>
 @endsection

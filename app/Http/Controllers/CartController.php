@@ -79,6 +79,7 @@ class CartController extends Controller
     {
         $cart = session()->get("cart");
         
+        
         $cart[$request->id] =  ["title" => $cart[$request->id]['title'],
                                 "price" => $cart[$request->id]['price'],
                                 "count" => $cart[$request->id]['count'] + 1];
@@ -93,12 +94,15 @@ class CartController extends Controller
     {
         $cart = session()->get("cart");
         
-        $cart[$request->id] =  ["title" => $cart[$request->id]['title'],
-                                "price" => $cart[$request->id]['price'],
-                                "count" => $cart[$request->id]['count'] - 1];
-     
-                                
-        session(["cart" => $cart]);
+        if( $cart[$request->id]['count'] > 1){
+            
+            $cart[$request->id] =  ["title" => $cart[$request->id]['title'],
+                                    "price" => $cart[$request->id]['price'],
+                                    "count" => $cart[$request->id]['count'] - 1];
+         
+            session(["cart" => $cart]);
+
+        }
         
         return session()->get("cart");
 

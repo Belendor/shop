@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use App\Product;
+use App\Libs\WebToPay;
+use App\Libs\WebToPayException;
 
 class OrderController extends Controller
 {
@@ -25,6 +28,39 @@ class OrderController extends Controller
     public function create()
     {
         //
+    }
+
+    public function order(Request $request)
+    {
+
+        $buyCart = session()->get("cart");
+
+        $order = new Order;
+        $order->customer_name = $request->name;
+        $order->customer_email = $request->email;
+        $order->customer_phone = $request->phone;
+        $order->price = $buyCart[1]['price'];
+        $order->status = 1;
+        $order->save();
+        
+        try {
+        
+            return redirect(WebToPay::redirectToPayment(array(
+                'projectid'     => 181598,
+                'sign_password' => 'bef35db24f8ca98d5875aee3fdf95026',
+                'orderid'       => $order->id,
+                'amount'        => (int) $order->price * 100,
+                'currency'      => 'EUR',
+                'country'       => 'LT',
+                'accepturl'     => route('paysera.accept'),
+                'cancelurl'     => route('paysera.cancel'),
+                'callbackurl'   => route('paysera.callback'),
+                'test'          => 1,
+            )));
+        } catch (WebToPayException $e) {
+            // handle exception
+        } 
+
     }
 
     /**

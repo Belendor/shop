@@ -27,6 +27,7 @@ class HomeController extends Controller
 
         $pizzas = [];
         $snacks = [];
+
         $products = Product::all();       
 
         foreach($products as $product){
@@ -59,6 +60,23 @@ class HomeController extends Controller
     public function admin()
     {
         return view('admin.index');
+    }
+    public function order()
+    {
+        return view('order');
+    }
+
+    public function payseraAccept()
+    {
+        return view('order');
+    }
+    public function payseraCancel()
+    {
+        return view('order');
+    }
+    public function payseraCallback()
+    {
+        return view('order');
     }
 
     public function adminList()
