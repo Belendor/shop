@@ -39,8 +39,15 @@ class OrderController extends Controller
         $order->customer_name = $request->name;
         $order->customer_email = $request->email;
         $order->customer_phone = $request->phone;
-        $order->price = $buyCart[1]['price'];
         $order->status = 1;
+
+        $orderSum = 0;
+
+        foreach($buyCart as $product){
+            $orderSum += $product['price'] * $product['count'];
+        }
+
+        $order->price = $orderSum;
         $order->save();
         
         try {
@@ -49,7 +56,7 @@ class OrderController extends Controller
                 'projectid'     => 181598,
                 'sign_password' => 'bef35db24f8ca98d5875aee3fdf95026',
                 'orderid'       => $order->id,
-                'amount'        => (int) $order->price * 100,
+                'amount'        => $order->price * 100,
                 'currency'      => 'EUR',
                 'country'       => 'LT',
                 'accepturl'     => route('paysera.accept'),

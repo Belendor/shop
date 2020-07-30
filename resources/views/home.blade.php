@@ -1,6 +1,3 @@
-{{-- {{dd($pizzas)}} --}}
-
-
 @extends('layouts.app')
 
 

@@ -12,6 +12,10 @@
     border-radius: 10px;
     cursor: pointer;
     border: none;
+    text-decoration: none !important;
+}
+.default-button:hover{
+    color: white;
 }
 
 .shop-main-container{
