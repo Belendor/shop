@@ -38,7 +38,12 @@ Route::group(['prefix' => 'api'], function(){
     Route::get('/session', 'CartController@sessionGet')->name('api.sessionGet');
 });
 
+
+
+Route::get('all-good', 'HomeController@allGood')->name('all.good');
+
 Route::get('paysera/accept', 'HomeController@payseraAccept')->name('paysera.accept');
+
 Route::get('paysera/cancel', 'HomeController@payseraCancel')->name('paysera.cancel');
 Route::post('paysera/callback', 'HomeController@payseraCallback')->name('paysera.callback');
 

@@ -49,6 +49,7 @@ class OrderController extends Controller
 
         $order->price = $orderSum;
         $order->save();
+        session()->flush();
         
         try {
         

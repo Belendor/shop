@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Order;
+use App\Libs\WebToPay;
+use App\Libs\WebToPayException;
 
 class HomeController extends Controller
 {
@@ -68,8 +71,35 @@ class HomeController extends Controller
 
     public function payseraAccept()
     {
-        return view('order');
+        try {
+                $response = WebToPay::checkResponse($_GET, array(
+                    'projectid'     => 181598,
+                    'sign_password' => 'bef35db24f8ca98d5875aee3fdf95026',
+                ));
+        
+                $orderId = $response['orderid'];
+                $amount = $response['amount'];
+                $currency = $response['currency'];
+
+                $order = Order::where('id', $orderId)->first();
+
+                if($amount == $order->price * 100 && $order->status == 1){
+                    $order->status = 2;
+                    $order->save();
+                }
+
+        } catch (Exception $e) {
+                echo get_class($e) . ': ' . $e->getMessage();
+        }
+
+        return redirect()->route('all.good');
     }
+
+    public function allGood()
+    {
+        return view('orders.all-good');
+    }
+
     public function payseraCancel()
     {
         return view('order');

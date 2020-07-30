@@ -92,6 +92,8 @@ class CartController extends Controller
     }   
     public function sessionSubstract(Request $request)
     {
+
+    
         $cart = session()->get("cart");
         
         if( $cart[$request->id]['count'] > 1){

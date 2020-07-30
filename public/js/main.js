@@ -149,6 +149,7 @@ function minusEvents (){
     minus[i].addEventListener('click', ()=>{
       axios.post('/shop/public/api/session/substract ', {"id": minus[i].dataset.id})
       .then(res=>{
+        console.log(res.data);
         renderCart(res.data)
       })
     })
